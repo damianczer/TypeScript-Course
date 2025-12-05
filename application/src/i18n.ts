@@ -6,7 +6,7 @@ const resources = {
     pl: {
         translation: {
             site: {
-                title: 'Kurs TypeScript',
+                title: 'TypeScript',
             },
             nav: {
                 home: 'Strona główna',
@@ -14,9 +14,14 @@ const resources = {
                 about: 'O kursie',
             },
             hero: {
-                title: 'Prawdopodobnie najlepszy\ndarmowy kurs TypeScript',
+                title: 'Prawdopodobnie\nnajlepszy darmowy\nkurs\nTypeScript',
                 subtitle: 'Kompleksowy kurs od podstaw do zaawansowanych technik',
                 cta: 'Rozpocznij naukę',
+                welcomeTitle: 'Witaj w kursie TypeScript!',
+                welcomeP1: 'Cześć! Cieszę się, że trafiłeś na tę stronę. Stworzyłem ten kurs, ponieważ wierzę, że TypeScript to jeden z najważniejszych języków, którego warto się nauczyć w dzisiejszych czasach.',
+                welcomeP2: 'Przez lata pracy z JavaScriptem i TypeScriptem zebrałem wiedzę i doświadczenie, którymi chcę się z Tobą podzielić. Ten kurs to efekt mojej pasji do programowania i chęci pomocy innym w rozwoju.',
+                welcomeP3: 'Niezależnie od tego, czy dopiero zaczynasz swoją przygodę z programowaniem, czy jesteś doświadczonym developerem - znajdziesz tu coś dla siebie. Wszystko za darmo, bez ukrytych kosztów.',
+                welcomeP4: 'TypeScript jest aktywnie rozwijany przez Microsoft i społeczność open source. W związku z tym, kurs będzie regularnie aktualizowany o nowe funkcje i najlepsze praktyki, aby zawsze dostarczać Ci najbardziej aktualne informacje.',
                 feature1Title: 'Kompleksowy',
                 feature1Desc: 'Od podstaw do zaawansowanych technik TypeScript',
                 feature2Title: 'Praktyczny',
@@ -47,7 +52,7 @@ const resources = {
     en: {
         translation: {
             site: {
-                title: 'TypeScript Course',
+                title: 'TypeScript',
             },
             nav: {
                 home: 'Home',
@@ -55,9 +60,14 @@ const resources = {
                 about: 'About',
             },
             hero: {
-                title: 'Probably the best\nfree TypeScript course',
+                title: 'Probably the best\nfree\nTypeScript course',
                 subtitle: 'Comprehensive course from basics to advanced techniques',
                 cta: 'Start Learning',
+                welcomeTitle: 'Welcome to the TypeScript Course!',
+                welcomeP1: 'Hi! I\'m glad you found this page. I created this course because I believe TypeScript is one of the most important languages worth learning today.',
+                welcomeP2: 'Through years of working with JavaScript and TypeScript, I\'ve gathered knowledge and experience that I want to share with you. This course is the result of my passion for programming and desire to help others grow.',
+                welcomeP3: 'Whether you\'re just starting your programming journey or you\'re an experienced developer - you\'ll find something for yourself here. Everything for free, no hidden costs.',
+                welcomeP4: 'TypeScript is actively developed by Microsoft and the open source community. Because of this, the course will be regularly updated with new features and best practices to always provide you with the most current information.',
                 feature1Title: 'Comprehensive',
                 feature1Desc: 'From basics to advanced TypeScript techniques',
                 feature2Title: 'Practical',
@@ -92,12 +102,13 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: 'pl',
+        fallbackLng: 'en',
         interpolation: {
             escapeValue: false,
         },
         detection: {
-            order: ['localStorage', 'navigator'],
+            order: ['localStorage'],
+            lookupLocalStorage: 'i18nextLng',
             caches: ['localStorage'],
         },
     });

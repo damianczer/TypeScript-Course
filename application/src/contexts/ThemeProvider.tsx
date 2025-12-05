@@ -7,6 +7,12 @@ import { ThemeContext } from './ThemeContext';
 const TRANSITION_DELAY = 200;
 const TRANSITION_DURATION = 400;
 
+const savedTheme = (localStorage.getItem(THEME_STORAGE_KEY) as Theme) || 'dark';
+if (typeof document !== 'undefined') {
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(savedTheme);
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const [theme, setTheme] = useLocalStorage<Theme>(THEME_STORAGE_KEY, 'dark');
     const [isTransitioning, setIsTransitioning] = useState(false);
@@ -38,10 +44,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     return (
         <ThemeContext.Provider value={value}>
             {isTransitioning && (
-                <div className="fixed inset-0 z-50 bg-white dark:bg-gray-950 
-                flex items-center justify-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-4
-                     border-gray-300 dark:border-gray-700 border-t-blue-600 dark:border-t-blue-400"></div>
+                <div className="fixed inset-0 z-50 bg-[#007acc] flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-4 border-white/30
+                     border-t-white"></div>
                 </div>
             )}
             {children}
